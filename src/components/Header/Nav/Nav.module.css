@@ -1,0 +1,63 @@
+.navItem {
+  display: inline-block;
+  margin-right: 24px;
+}
+
+.navItem:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.navItem a,
+.navItem a:visited,
+.navItem a:hover {
+  color: white;
+}
+
+.hamburgerMenu {
+  display: none;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .navItem {
+    margin-right: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hidden {
+    display: none;
+  }
+
+  .nav {
+    position: fixed;
+    top: 8vh;
+    left: 0;
+    width: 100vw;
+    height: 24vh;
+    background-color: rgb(52, 52, 140);
+  }
+
+  .navItem {
+    width: 100vw;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: goldenrod;
+  }
+
+  .navItem:nth-child(odd) {
+    background-color: rgb(62, 62, 150);
+    color: white;
+  }
+}
+
+@media (min-width: 768px) {
+  .hamburgerMenuDiv {
+    display: none;
+  }
+}

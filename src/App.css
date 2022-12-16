@@ -1,0 +1,12 @@
+.iconPosition {
+  position: fixed;
+  top: 40vh;
+  left: 50vw;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: black;
+}

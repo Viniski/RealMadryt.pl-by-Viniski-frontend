@@ -1,0 +1,38 @@
+.hamburgerMenu {
+  height: 4vh;
+  width: 4vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  cursor: pointer;
+}
+
+.line {
+  display: block;
+  background-color: white;
+  height: 0.5vh;
+  width: 100%;
+  border-radius: 0.75vh;
+}
+
+.hamburgerMenu.clicked .line:nth-of-type(1) {
+  transform: rotate(45deg) translate(1vh, 1.12vh);
+  transition: ease-out 0.5s;
+}
+
+.hamburgerMenu.clicked .line:nth-of-type(2) {
+  transform: scale(0.1);
+  transition: ease-out 0.5s;
+}
+
+.hamburgerMenu.clicked .line:nth-of-type(3) {
+  transform: rotate(135deg) translate(-0.75vh, 1vh);
+  transition: ease-out 0.5s;
+}
+
+.hamburgerMenu.unclicked .line:nth-of-type(1),
+.hamburgerMenu.unclicked .line:nth-of-type(2),
+.hamburgerMenu.unclicked .line:nth-of-type(3) {
+  transform: rotate(0) translate(0);
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+}

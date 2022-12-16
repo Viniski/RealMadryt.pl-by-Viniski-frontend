@@ -1,0 +1,38 @@
+.searchBarMobile {
+  display: none;
+}
+
+.button {
+  padding: 8px;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  color: rgb(42, 42, 130);
+}
+
+.input {
+  margin-right: 24px;
+  padding: 8px;
+}
+
+.input:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+  .input {
+    margin-right: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .searchBarDeskop {
+    display: none;
+  }
+
+  .searchBarMobile {
+    display: inherit;
+  }
+}

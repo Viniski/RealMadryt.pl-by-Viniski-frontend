@@ -1,0 +1,17 @@
+.comments {
+  width: 80%;
+  margin-left: 5%;
+  margin-top: 36px;
+}
+
+.comments h2 {
+  width: auto;
+  padding: 12px 0;
+}
+
+@media (max-width: 1024px) {
+  .comments {
+    width: 90%;
+    margin: auto;
+  }
+}

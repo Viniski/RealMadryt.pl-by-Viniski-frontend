@@ -1,0 +1,54 @@
+.searchPage {
+  width: 70vw;
+  margin: auto;
+  margin-top: 12vh;
+  background-color: white;
+}
+
+.searchPageHeader {
+  width: 70vw;
+  padding-top: 16px;
+  padding-left: 16px;
+  display: block;
+  margin: auto;
+  background-color: white;
+  color: rgb(42, 42, 130);
+}
+
+.searchPageDiv {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchPageParagraph {
+  padding: 0 10%;
+  text-align: center;
+  font-size: 18px;
+  color: goldenrod;
+}
+
+@media (max-width: 1024px) {
+  .searchPage {
+    width: 90vw;
+    margin-top: 10vh;
+  }
+
+  .searchPageHeader {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .searchPage {
+    width: 100%;
+  }
+
+  .searchPageHeader {
+    width: 100%;
+    padding-top: 8px;
+    padding-left: 8px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,68 @@
+.container {
+  width: 70vw;
+  min-height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 12vh;
+  background-color: white;
+}
+
+.title {
+  width: 90%;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.subtitle {
+  width: 90%;
+  padding-bottom: 10px;
+  text-align: center;
+  color: rgb(42, 42, 130);
+}
+
+.paragraph {
+  width: 50vw;
+  text-align: center;
+}
+
+.paragraph:nth-of-type(3) {
+  padding-top: 50px;
+  padding-bottom: 25px;
+  font-weight: bold;
+  color: goldenrod;
+}
+
+.paragraph a {
+  padding-bottom: 25px;
+  text-decoration: none;
+  color: goldenrod;
+}
+
+.paragraph a:hover {
+  color: rgb(42, 42, 130);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 90vw;
+    margin-top: 10vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .paragraph {
+    width: 90vw;
+  }
+
+  .subtitle {
+    padding-bottom: 16px;
+  }
+}

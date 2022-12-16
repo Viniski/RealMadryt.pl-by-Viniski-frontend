@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.57734191.css",
+    "main.js": "/static/js/main.95a10b5b.js",
+    "static/css/64.1f4ce0ce.chunk.css": "/static/css/64.1f4ce0ce.chunk.css",
+    "static/js/64.68323672.chunk.js": "/static/js/64.68323672.chunk.js",
+    "static/js/787.7035d539.chunk.js": "/static/js/787.7035d539.chunk.js",
+    "static/media/zidane.webp": "/static/media/zidane.bc7ea8b6cc486e1018b3.webp",
+    "static/media/drenthe.webp": "/static/media/drenthe.433bab98ad379205a86a.webp",
+    "static/media/ancelotti.webp": "/static/media/ancelotti.56368eb2b54a4276c7dd.webp",
+    "static/media/stadiumopacity.webp": "/static/media/stadiumopacity.eca0c48448690ccac96c.webp",
+    "static/media/pele.webp": "/static/media/pele.8772eca4b139cee1667d.webp",
+    "static/media/diStefano.webp": "/static/media/diStefano.c364786126606e5312c7.webp",
+    "static/media/noweBernabeu.webp": "/static/media/noweBernabeu.c792a3a7470dbc9f7d6a.webp",
+    "static/media/unitedprzyjaciele.webp": "/static/media/unitedprzyjaciele.4ae664cda9b0f2e2a306.webp",
+    "static/media/password.webp": "/static/media/password.349c6d7b2d7375bcc705.webp",
+    "static/media/google.webp": "/static/media/google.a4642d17bdf765252f3b.webp",
+    "static/media/notification.svg?s3g3t9": "/static/media/notification.5d0158671dd860c714c4.svg",
+    "static/media/notification.eot": "/static/media/notification.3657084dc0419605a91c.eot",
+    "static/media/notification.woff?s3g3t9": "/static/media/notification.c392cd33d9d9de730f9d.woff",
+    "static/media/notification.ttf?s3g3t9": "/static/media/notification.c5d9251ea82e42f75381.ttf",
+    "static/media/github.webp": "/static/media/github.bc353c1e2a9401820459.webp",
+    "index.html": "/index.html",
+    "main.57734191.css.map": "/static/css/main.57734191.css.map",
+    "main.95a10b5b.js.map": "/static/js/main.95a10b5b.js.map",
+    "64.1f4ce0ce.chunk.css.map": "/static/css/64.1f4ce0ce.chunk.css.map",
+    "64.68323672.chunk.js.map": "/static/js/64.68323672.chunk.js.map",
+    "787.7035d539.chunk.js.map": "/static/js/787.7035d539.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57734191.css",
+    "static/js/main.95a10b5b.js"
+  ]
+}

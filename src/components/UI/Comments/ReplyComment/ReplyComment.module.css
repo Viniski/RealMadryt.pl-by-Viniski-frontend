@@ -1,0 +1,20 @@
+.replyDiv {
+  display: flex;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.activeButton {
+  margin-bottom: 8px;
+  font-weight: bold;
+  background-color: white;
+  color: goldenrod;
+}
+
+.inactiveButton {
+  display: none;
+}
+
+.replyForm {
+  padding: 0 4px;
+}

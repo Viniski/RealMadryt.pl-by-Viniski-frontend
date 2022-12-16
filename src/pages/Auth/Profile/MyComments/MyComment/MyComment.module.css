@@ -1,0 +1,42 @@
+.comment {
+  width: 80%;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.commentText {
+  padding-top: 24px;
+  padding-bottom: 12px;
+}
+
+.commentLink {
+  padding-bottom: 24px;
+  color: #666;
+}
+
+a,
+a:visited {
+  color: goldenrod;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .comment {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .comment {
+    width: 100%;
+  }
+
+  .commentText,
+  .commentLink {
+    width: 92%;
+    margin: auto;
+  }
+}

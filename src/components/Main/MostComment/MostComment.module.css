@@ -1,0 +1,38 @@
+.section {
+  display: block;
+  width: 70vw;
+  padding: 24px 0;
+  margin: auto;
+  margin-top: 12vh;
+  text-align: center;
+  border: 2px solid rgb(42, 42, 130);
+  background-color: white;
+  color: rgb(42, 42, 130);
+}
+
+.section:hover {
+  opacity: 0.9;
+}
+
+.text {
+  font-weight: bold;
+  color: goldenrod;
+}
+
+.title {
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    width: 90vw;
+    margin-top: 10vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    width: 99%;
+    padding: 16px 0;
+  }
+}

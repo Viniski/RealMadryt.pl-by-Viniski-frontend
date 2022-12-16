@@ -1,0 +1,30 @@
+.form {
+  position: relative;
+  width: 100%;
+  padding-bottom: 16px;
+}
+
+.form h3 {
+  padding: 24px;
+}
+
+.commentForm {
+  width: 100%;
+  padding: 16px;
+}
+
+.form button {
+  position: absolute;
+  right: 16px;
+  top: 18px;
+}
+
+.activeButton {
+  font-weight: bold;
+  background-color: white;
+  color: goldenrod;
+}
+
+.inactiveButton {
+  display: none;
+}

@@ -1,0 +1,49 @@
+.reply {
+  margin-left: 5%;
+}
+
+.commentText {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+.commentText button {
+  padding: 4px 18px;
+  margin-left: 4px;
+  border-radius: 3px;
+  margin-top: 8px;
+  background-color: rgb(42, 42, 130);
+  color: white;
+}
+
+.commentText button:hover {
+  background-color: goldenrod;
+  color: rgb(42, 42, 130);
+}
+
+.commentText button {
+  padding: 4px 18px;
+  margin-left: 4px;
+  border-radius: 3px;
+  margin-top: 8px;
+  background-color: rgb(42, 42, 130);
+  color: white;
+}
+
+.commentText button:hover {
+  background-color: goldenrod;
+  color: rgb(42, 42, 130);
+}
+
+.commentInfo {
+  padding-top: 12px;
+  padding-bottom: 4px;
+}
+
+.commentAuthor {
+  font-weight: bold;
+}
+
+.commentTime {
+  color: gray;
+}

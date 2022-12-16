@@ -1,0 +1,26 @@
+footer {
+  width: 70vw;
+  padding: 18px;
+  margin: auto;
+  margin-top: 2vh;
+  text-align: center;
+  font-size: 14px;
+  background-color: rgb(42, 42, 130);
+  color: white;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  footer {
+    width: 90vw;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    width: 100vw;
+    padding: 12px;
+    font-size: 12px;
+  }
+}
