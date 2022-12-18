@@ -9,6 +9,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import LoadingIcon from "./components/UI/LoadingIcon/BouncingBalls";
 import Searchbar from "./components/UI/Searchbar/Searchbar";
+import ScrollToTop from "./components/UI/ScrollToTop/ScrollToTop";
 import Layout from "./components/Layout/Layout";
 import Nav from "./components/Header/Nav/Nav";
 import Champions from "./components/Header/Champions/Champions";
@@ -203,6 +204,7 @@ function App() {
             }
             content={
               <ErrorBoundary>
+                <ScrollToTop>
                 <Routes>
                   <Route
                     path="/profil"
@@ -227,6 +229,7 @@ function App() {
                   <Route path="/" exact element={<Home />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
+                </ScrollToTop>
               </ErrorBoundary>
             }
             footer={<Footer />}
