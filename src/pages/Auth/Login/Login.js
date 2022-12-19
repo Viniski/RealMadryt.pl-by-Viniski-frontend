@@ -36,11 +36,11 @@ export default function Login() {
   };
 
   const googleHandler = () => {
-    window.open(`${process.env.REACT_APP_PAGE_URL}/api/auth/google`, "_self");
+    window.open(`${process.env.REACT_APP_API_URL}/auth/google`, "_self");
   };
 
   const githubHandler = () => {
-    window.open(`${process.env.REACT_APP_PAGE_URL}/api/auth/github`, "_self");
+    window.open(`${process.env.REACT_APP_API_URL}/auth/github`, "_self");
   };
 
   useWebsiteTitle(`Zaloguj się | RealMadryt.pl by Viniski`);
