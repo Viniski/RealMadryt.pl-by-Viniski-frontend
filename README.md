@@ -1,60 +1,63 @@
-# RealMadryt.pl by Viniski 
+# RealMadryt.pl by Viniski
+
 # FRONT END
-Fullstack application inspired by realmadryt.pl. The application front was written using React.js. While the backend was written using Node.js, Express.js and the data was stored in the MongoDB database.
+
+Fullstack application inspired by realmadryt.pl. The application front was written using React.js. While the front end was written using Node.js, Express.js and the data was stored in the MongoDB database.
 
 This repository contains the frontend part of the my application. You can find the backend here: https://github.com/Viniski/RealMadryt.pl-by-Viniski-backend
 
 ## Descriptions
+
 The application contains several articles, the ability to search them through the search engine placed in the header of the page. You can comment on articles after creating an account or logging in, also using external portals: google and github. Comments can be added, edited, deleted and reply to comments from other users.
 
 ## Technical
+
 This project was bootstrapped with Create React App. The Context API was used to manage the state, using additionally useState and useReducer. The design of the application was independently designed. The CSS module was chosen to style the application due to the encapsulation of the CSS classes of the components. The application is adapted to display on screens with different resolutions. Validation of registration and login forms without the use of external libraries has been written. The axios library and the fetch API were used to connect to the API. The routing was built using the react-router library. Environment variables used. I know that the downside is the lack of tests, but I plan to include them in the next project I'm working on.
 
 ## Built With
-* React.js
-* Create-react-app
-* CSS Module
-* React-Router
-* Axios
-* Fetch
-* Dotenv
-* React-cookie
-* React-notification
+
+- React.js
+- Create-react-app
+- CSS Module
+- React-Router
+- Axios
+- Fetch
+- Dotenv
+- React-cookie
+- React-notification
 
 ## Demo
+
 Render.com cloud application hosting for developers was used.
 
 ### Home
-![](
-screen-shot-home.png)
+
+![](screen-shot-home.png)
 
 ### Home (mobile)
-![](
-screen-shot-home-mobile.png)
+
+![](screen-shot-home-mobile.png)
 
 ### Article (mobile)
-![](
-screen-shot-article-mobile.png)
+
+![](screen-shot-article-mobile.png)
 
 ### Comment section
-![](
-screen-shot-comment.png)
+
+![](screen-shot-comment.png)
 
 ### Register Page
-![](
-screen-shot-register.png)
+
+![](screen-shot-register.png)
 
 ### Login Page
-![](
-screen-shot-login.png)
+
+![](screen-shot-login.png)
 
 ## License
+
 This project is licensed under the MIT License.
 All texts are the property of realmadryt.pl all photos and images are the property of Getty Images.
-
-
-
-
 
 # Getting Started with Create React App
 
