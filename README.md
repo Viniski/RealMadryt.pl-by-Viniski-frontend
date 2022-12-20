@@ -30,6 +30,22 @@ This project was bootstrapped with Create React App. The Context API was used to
 
 Render.com cloud application hosting for developers was used. Please be patient while loading due to the free package I'm using.
 
+#### If you want running on your computer:
+
+The frontend and backend are separate projects -- first start the backend
+
+```zsh
+npm install
+node index.js
+```
+
+Start the frontend (which is in another repository) in a new terminal
+
+```zsh
+npm install
+npm run start
+```
+
 ### Home
 
 ![](screen-shot-home.png)
