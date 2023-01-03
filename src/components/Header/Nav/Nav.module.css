@@ -27,7 +27,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .hidden {
     display: none;
   }
@@ -56,7 +56,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .hamburgerMenuDiv {
     display: none;
   }

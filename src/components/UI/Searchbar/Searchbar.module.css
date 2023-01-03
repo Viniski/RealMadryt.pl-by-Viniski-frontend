@@ -25,6 +25,16 @@ button:hover {
   .input {
     margin-right: 12px;
   }
+
+  @media (orientation: landscape) {
+    .button {
+      padding: 0 8px;
+    }
+
+    .input {
+      padding: 0 4px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
