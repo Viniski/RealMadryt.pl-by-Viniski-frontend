@@ -19,7 +19,7 @@ const availableRules = {
   },
   compare(value, password) {
     console.log(value, password);
-    return value === password ? "" : `Podane hasła nie sa identyczne`; //porównanie 3/2 bo string/number ?????
+    return value === password ? "" : `Podane hasła nie sa identyczne`;
   },
 };
 
