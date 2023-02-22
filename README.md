@@ -6,14 +6,14 @@ Fullstack application inspired by realmadryt.pl. The application front was writt
 
 This repository contains the frontend part of the my application. You can find the backend here: https://github.com/Viniski/RealMadryt.pl-by-Viniski-backend
 
-## Descriptions
+## :sunglasses: Descriptions
 
 - The application contains several articles, the ability to search them through the search engine placed in the header of the page.
 - You can comment on articles after creating an account or logging in, also using external portals: google and github.
 - Comments can be added, edited, deleted and reply to comments from other users.
 - After logging in, view your comments in the my profile system and change your password.
 
-## Technical
+## :wrench: Technical
 
 - This project was bootstrapped with Create React App.
 - The Context API was used to manage the state, using additionally useState and useReducer.
@@ -37,7 +37,7 @@ This repository contains the frontend part of the my application. You can find t
 - React-cookie
 - React-notification
 
-## Demo
+## :rocket: Demo
 
 https://realmadrytbyviniski.onrender.com
 
