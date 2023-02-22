@@ -8,11 +8,22 @@ This repository contains the frontend part of the my application. You can find t
 
 ## Descriptions
 
-The application contains several articles, the ability to search them through the search engine placed in the header of the page. You can comment on articles after creating an account or logging in, also using external portals: google and github. Comments can be added, edited, deleted and reply to comments from other users.
+- The application contains several articles, the ability to search them through the search engine placed in the header of the page.
+- You can comment on articles after creating an account or logging in, also using external portals: google and github.
+- Comments can be added, edited, deleted and reply to comments from other users.
+- After logging in, view your comments in the my profile system and change your password.
 
 ## Technical
 
-This project was bootstrapped with Create React App. The Context API was used to manage the state, using additionally useState and useReducer. The design of the application was independently designed. The CSS module was chosen to style the application due to the encapsulation of the CSS classes of the components. The application is adapted to display on screens with different resolutions. Validation of registration and login forms without the use of external libraries has been written. The axios library and the fetch API were used to connect to the API. The routing was built using the react-router library. Environment variables used. I know that the downside is the lack of tests, but I plan to include them in the next project I'm working on.
+- This project was bootstrapped with Create React App.
+- The Context API was used to manage the state, using additionally useState and useReducer.
+- The design of the application was independently designed.
+- The CSS module was chosen to style the application due to the encapsulation of the CSS classes of the components.
+- The application is adapted to display on screens with different resolutions.
+- Validation of registration and login forms without the use of external libraries has been written.
+- The axios library and the fetch API were used to connect to the API.
+- The routing was built using the react-router library.
+- Environment variables used.
 
 ## :computer: Built With
 
