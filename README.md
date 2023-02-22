@@ -85,7 +85,7 @@ npm run start
 
 ![](screen-shot-login.png)
 
-## License
+## :page_with_curl: License
 
 This project is licensed under the MIT License.
 All texts are the property of realmadryt.pl all photos and images are the property of Getty Images.
