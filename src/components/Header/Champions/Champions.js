@@ -11,9 +11,7 @@ function Champions() {
     return headerText[Math.floor(Math.random() * headerText.length)];
   };
 
-  let text = randomQuotes();
-
-  return <p className={styles.championsText}>{text}</p>;
+  return <p className={styles.championsText}>{randomQuotes()}</p>;
 }
 
 export default Champions;

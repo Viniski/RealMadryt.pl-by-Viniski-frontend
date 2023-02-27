@@ -24,6 +24,7 @@ This repository contains the frontend part of the my application. You can find t
 - The axios library and the fetch API were used to connect to the API.
 - The routing was built using the react-router library.
 - Environment variables used.
+- React Testing Library and JEST was used to test the application. Many unit and integration tests have been written. (being developed)
 
 ## :computer: Built With
 
