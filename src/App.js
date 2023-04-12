@@ -88,7 +88,7 @@ function App() {
       dispatch({ type: "logout" });
     };
 
-    const verifiedRefreshToken = async (newAccessToken) => {      
+    const verifiedRefreshToken = async (newAccessToken) => {
       try {
         authAxios = axios.create({
           baseURL: process.env.REACT_APP_API_URL,
@@ -118,10 +118,16 @@ function App() {
           const dataUser = await authAxios.post("/authorization");
           dispatch({ type: "login", user: dataUser });
         } catch (error) {
-          console.error(error.message, "nie powiodło się z refreshTokenem, wylogowany");
+          console.error(
+            error.message,
+            "nie powiodło się z refreshTokenem, wylogowany"
+          );
         }
       } catch (error) {
-        console.error(error.message,"nie powiodło się z refreshTokenem, wylogowany");
+        console.error(
+          error.message,
+          "nie powiodło się z refreshTokenem, wylogowany"
+        );
         dispatch({ type: "logout" });
       }
     };
@@ -205,30 +211,30 @@ function App() {
             content={
               <ErrorBoundary>
                 <ScrollToTop>
-                <Routes>
-                  <Route
-                    path="/profil"
-                    element={
-                      <Suspense fallback={<p>Ładowanie...</p>}>
-                        <AuthenticatedRoute />
-                      </Suspense>
-                    }
-                  />
-                  <Route path="/news/:id" element={<Article />} />
-                  <Route path="/wyszukaj/:term" element={<Search />} />
-                  <Route
-                    path="/wyszukaj/:term/news/:id"
-                    element={<Article />}
-                  />
-                  <Route path="/zaloguj" element={<Login />} />
-                  <Route path="/rejestracja" element={<Registration />} />
-                  <Route
-                    path="/rejestracja/powitanie"
-                    element={<WelcomeUser />}
-                  />
-                  <Route path="/" exact element={<Home />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+                  <Routes>
+                    <Route
+                      path="/profil"
+                      element={
+                        <Suspense fallback={<p>Ładowanie...</p>}>
+                          <AuthenticatedRoute />
+                        </Suspense>
+                      }
+                    />
+                    <Route path="/news/:id" element={<Article />} />
+                    <Route path="/wyszukaj/:term" element={<Search />} />
+                    <Route
+                      path="/wyszukaj/:term/news/:id"
+                      element={<Article />}
+                    />
+                    <Route path="/zaloguj" element={<Login />} />
+                    <Route path="/rejestracja" element={<Registration />} />
+                    <Route
+                      path="/rejestracja/powitanie"
+                      element={<WelcomeUser />}
+                    />
+                    <Route path="/" exact element={<Home />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
                 </ScrollToTop>
               </ErrorBoundary>
             }
