@@ -9,7 +9,7 @@ export const FormInput = ({
 }) => {
   if (type === "checkbox") {
     return (
-      <div>
+      <form>
         <label>{label}</label>
         <input
           type={type}
@@ -17,20 +17,22 @@ export const FormInput = ({
           onChange={(e) => onChange(e.target.checked)}
           className={className}
         />
-      </div>
+      </form>
     );
   }
 
   return (
-    <input
-      ref={props?.innerRef}
-      placeholder={label || props?.placeholder}
-      type={type}
-      value={value}
-      onKeyDown={(e) => onKeyDown(e)}
-      onChange={(e) => onChange(e.target.value)}
-      className={className}
-    />
+    <form>
+      <input
+        ref={props?.innerRef}
+        placeholder={label || props?.placeholder}
+        type={type}
+        value={value}
+        onKeyDown={(e) => onKeyDown(e)}
+        onChange={(e) => onChange(e.target.value)}
+        className={className}
+      />
+    </form>
   );
 };
 

@@ -7,12 +7,8 @@ import styles from "./Comment.module.css";
 export function Comment({ onDelete, onReply, onEdit, replies, data }) {
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
-  const authContext = useContext(AuthContext);
-  const auth = authContext.isAuthenticated;
-  let userName;
-  if (auth) {
-    userName = authContext.user.userName;
-  }
+  const { isAuthenticated, user } = useContext(AuthContext);
+
   return (
     <div className={styles[data.className]}>
       <div className={styles.commentInfo}>
@@ -24,12 +20,12 @@ export function Comment({ onDelete, onReply, onEdit, replies, data }) {
       </div>
       <div className={styles.commentText}>
         <p className={styles.commentTextParagraph}>{data.text}</p>
-        {auth ? (
+        {isAuthenticated ? (
           <>
             <button onClick={() => setShowReplyForm(!showReplyForm)}>
               Odpowiedz
             </button>
-            {userName === data.user ? (
+            {user === data.user ? (
               <>
                 <button onClick={() => setShowEditForm(!showEditForm)}>
                   Edytuj
