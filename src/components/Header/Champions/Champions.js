@@ -6,12 +6,10 @@ const headerText = [
   "7-krotni mistrzowie świata",
 ];
 
-function Champions() {
+export function Champions() {
   const randomQuotes = () => {
     return headerText[Math.floor(Math.random() * headerText.length)];
   };
 
   return <p className={styles.championsText}>{randomQuotes()}</p>;
 }
-
-export default Champions;

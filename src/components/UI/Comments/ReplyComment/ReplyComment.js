@@ -1,10 +1,16 @@
 import { useState, useContext } from "react";
-import AuthContext from "../../../../context/authContext";
-import FormInput from "../../../Input/FormInput";
+import { AuthContext } from "../../../../context/authContext";
+import { FormInput } from "../../../Input/FormInput";
 import styles from "./ReplyComment.module.css";
 
-function ReplyComment(props) {
-  const [newTextComment, setNewTextComment] = useState(`@${props.userName} `);
+export function ReplyComment({
+  userName,
+  articleId,
+  parentId,
+  commentId,
+  onReply,
+}) {
+  const [newTextComment, setNewTextComment] = useState(`@${userName} `);
   const authContext = useContext(AuthContext);
   const auth = authContext.isAuthenticated;
   let userName;
@@ -15,8 +21,8 @@ function ReplyComment(props) {
   const addReplyComment = () => {
     const time = new Date();
     const newComment = {
-      articleId: props.articleId,
-      parentId: props.parentId || props.commentId,
+      articleId: articleId,
+      parentId: parentId || commentId,
       time: time.toLocaleString("pl", {
         dateStyle: "short",
         timeStyle: "medium",
@@ -26,7 +32,7 @@ function ReplyComment(props) {
       text: newTextComment,
       className: "reply",
     };
-    props.onReply(newComment);
+    onReply(newComment);
     setNewTextComment("");
   };
 
@@ -39,15 +45,17 @@ function ReplyComment(props) {
   return (
     <div className={styles.replyDiv}>
       <FormInput
-            placeholder={`Dodaj komentarz`}
-            value={newTextComment}
-            onChange={setNewTextComment}
-            onKeyDown={onKeyDownHandler}
-            className={styles.replyForm}
-          />
+        placeholder={`Dodaj komentarz`}
+        value={newTextComment}
+        onChange={setNewTextComment}
+        onKeyDown={onKeyDownHandler}
+        className={styles.replyForm}
+      />
       <button
         className={
-          newTextComment.length !== 0 ? styles.activeButton : styles.inactiveButton
+          newTextComment.length !== 0
+            ? styles.activeButton
+            : styles.inactiveButton
         }
         onClick={() => addReplyComment()}
       >
@@ -56,5 +64,3 @@ function ReplyComment(props) {
     </div>
   );
 }
-
-export default ReplyComment;

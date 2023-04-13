@@ -1,14 +1,14 @@
 import { useState, useEffect, useContext } from "react";
-import AuthContext from "../../../../context/authContext";
+import { AuthContext } from "../../../../context/authContext";
 import { axiosInstance } from "../../../../axios";
-import FormInput from "../../../../components/Input/FormInput";
-import FormPasswordInput from "../../../../components/Input/FormPasswordInput";
+import { FormInput } from "../../../../components/Input/FormInput";
+import { FormPasswordInput } from "../../../../components/Input/FormPasswordInput";
 import styles from "./PasswordChange.module.css";
 
-export default function PasswordChange() {
+export function PasswordChange() {
   const authContext = useContext(AuthContext);
   const authEmail = authContext.user.email;
-  const [email, setEmail] = useState(authEmail); 
+  const [email, setEmail] = useState(authEmail);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({
@@ -25,7 +25,7 @@ export default function PasswordChange() {
   const handlerConfirmPassword = (value) => {
     setConfirmPassword(value);
     setShowError({ ...showError, confirmPassword: true });
-  }
+  };
 
   const submit = async (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ export default function PasswordChange() {
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-      setShowSuccess({ ...showError, backendError: false, });
+      setShowSuccess({ ...showError, backendError: false });
       setShowSuccess(true);
     } catch (ex) {
       let error = ex.response.data.message;

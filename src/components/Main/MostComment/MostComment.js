@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./MostComment.module.css";
 
-function MostComment(props) {
-  const article = props.getArticle({ minComment: 1 });
+export function MostComment({ getArticle }) {
+  const article = getArticle({ minComment: 1 });
   if (!article) return null;
 
   return (
@@ -17,5 +17,3 @@ function MostComment(props) {
     </Link>
   );
 }
-
-export default MostComment;

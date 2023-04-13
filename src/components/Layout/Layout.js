@@ -1,11 +1,9 @@
-function Layout(props) {
-    return (
-        <div>
-            <div>{props.header}</div>
-            <div>{props.content}</div>
-            <div>{props.footer}</div>
-        </div>
-    )
+export function Layout({ header, content, footer }) {
+  return (
+    <div>
+      <div>{header}</div>
+      <div>{content}</div>
+      <div>{footer}</div>
+    </div>
+  );
 }
-
-export default Layout;

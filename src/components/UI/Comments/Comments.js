@@ -6,13 +6,13 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { axiosInstance } from "../../../axios";
-import AddComment from "./AddComment/AddComment";
-import Comment from "./Comment/Comment";
-import DeletedRootComment from "./DeletedRootComment/DeletedRootComment";
-import LoadingIcon from "../LoadingIcon/LoadingIcon";
+import { AddComment } from "./AddComment/AddComment";
+import { Comment } from "./Comment/Comment";
+import { DeletedRootComment } from "./DeletedRootComment/DeletedRootComment";
+import { LoadingIcon } from "../LoadingIcon/LoadingIcon";
 import styles from "./Comments.module.css";
 
-function Comments() {
+export function Comments() {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -24,7 +24,9 @@ function Comments() {
 
   async function fetchComments() {
     const res = await axiosInstance.get("/comments");
-    let myArrayOfComments = res.data.filter((el) => el.articleId === Number(id));
+    let myArrayOfComments = res.data.filter(
+      (el) => el.articleId === Number(id)
+    );
     setComments(myArrayOfComments);
     setLoading(false);
   }
@@ -168,5 +170,3 @@ function Comments() {
     </section>
   );
 }
-
-export default Comments;

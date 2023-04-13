@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
-import useAuth from "../../../hooks/useAuth";
+import { useWebsiteTitle } from "../../../hooks/useWebsiteTitle";
+import { useAuth } from "../../../hooks/useAuth";
 import { axiosInstance } from "../../../axios";
-import FormInput from "../../../components/Input/FormInput";
-import FormPasswordInput from "../../../components/Input/FormPasswordInput";
+import { FormInput } from "../../../components/Input/FormInput";
+import { FormPasswordInput } from "../../../components/Input/FormPasswordInput";
 import { validate } from "../../../helpers/validation";
 import styles from "./Registration.module.css";
 
-export default function Registration() {
+export function Registration() {
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({

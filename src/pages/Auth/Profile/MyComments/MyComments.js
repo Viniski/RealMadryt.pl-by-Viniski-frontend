@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import AuthContext from "../../../../context/authContext";
+import { AuthContext } from "../../../../context/authContext";
 import { axiosInstance } from "../../../../axios";
-import MyComment from "./MyComment/MyComment";
-import LoadingIcon from "../../../../components/UI/LoadingIcon/LoadingIcon";
+import { MyComment } from "./MyComment/MyComment";
+import { LoadingIcon } from "../../../../components/UI/LoadingIcon/LoadingIcon";
 import styles from "./MyComments.module.css";
 
 function MyComments() {

@@ -1,6 +1,6 @@
 import styles from "./BouncingBalls.module.css";
 
-export default function BouncingBalls() {
+export function BouncingBalls() {
   return (
     <div className={styles.icon}>
       <div></div>

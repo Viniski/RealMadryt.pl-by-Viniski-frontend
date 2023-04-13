@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { CookiesProvider } from "react-cookie";
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './index.css';
+import { App } from "./App";
+import { reportWebVitals } from "./reportWebVitals";
+import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <CookiesProvider>
-    <App />
+      <App />
     </CookiesProvider>
   </React.StrictMode>
 );

@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
-import AuthContext from "../../../../context/authContext";
-import FormInput from "../../../Input/FormInput";
+import { AuthContext } from "../../../../context/authContext";
+import { FormInput } from "../../../Input/FormInput";
 import styles from "./AddComment.module.css";
 
-function AddComment(props) {
+export function AddComment({ articleId, onAdd }) {
   const [newTextComment, setNewTextComment] = useState("");
   const authContext = useContext(AuthContext);
   const auth = authContext.isAuthenticated;
@@ -15,7 +15,7 @@ function AddComment(props) {
   const addNewComment = () => {
     const time = new Date();
     const newComment = {
-      articleId: props.articleId,
+      articleId: articleId,
       parentId: null,
       time: time.toLocaleString("pl", {
         dateStyle: "short",
@@ -26,7 +26,7 @@ function AddComment(props) {
       text: newTextComment,
       className: "base",
     };
-    props.onAdd(newComment);
+    onAdd(newComment);
     setNewTextComment("");
   };
 
@@ -49,7 +49,9 @@ function AddComment(props) {
           />
           <button
             className={
-              newTextComment.length !== 0 ? styles.activeButton : styles.inactiveButton
+              newTextComment.length !== 0
+                ? styles.activeButton
+                : styles.inactiveButton
             }
             onClick={() => addNewComment()}
           >
@@ -64,5 +66,3 @@ function AddComment(props) {
     </div>
   );
 }
-
-export default AddComment;

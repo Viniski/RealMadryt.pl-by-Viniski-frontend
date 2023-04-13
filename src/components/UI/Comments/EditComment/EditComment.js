@@ -1,22 +1,22 @@
 import { useState } from "react";
-import FormInput from "../../../Input/FormInput";
+import { FormInput } from "../../../Input/FormInput";
 import styles from "./EditComment.module.css";
 
-function EditComment(props) {
-  const [newTextComment, setNewTextComment] = useState(props.data.text);
+export function EditComment({ onEdit, data }) {
+  const [newTextComment, setNewTextComment] = useState(data.text);
 
   const editComment = () => {
     const newComment = {
-      articleId: props.data.articleId,
-      _id: props.data._id,
-      parentId: props.data.parentId,
-      time: props.data.time,
+      articleId: data.articleId,
+      _id: data._id,
+      parentId: data.parentId,
+      time: data.time,
       isEdited: true,
-      user: props.data.user,
+      user: data.user,
       text: newTextComment,
-      className: props.data.className,
+      className: data.className,
     };
-    props.onEdit(newComment);
+    onEdit(newComment);
     setNewTextComment("");
   };
 
@@ -29,15 +29,17 @@ function EditComment(props) {
   return (
     <div className={styles.editDiv}>
       <FormInput
-            placeholder={`Dodaj komentarz`}
-            value={newTextComment}
-            onChange={setNewTextComment}
-            onKeyDown={onKeyDownHandler}
-            className={styles.editForm}
-          />
+        placeholder={`Dodaj komentarz`}
+        value={newTextComment}
+        onChange={setNewTextComment}
+        onKeyDown={onKeyDownHandler}
+        className={styles.editForm}
+      />
       <button
         className={
-          newTextComment.length !== 0 ? styles.activeButton : styles.inactiveButton
+          newTextComment.length !== 0
+            ? styles.activeButton
+            : styles.inactiveButton
         }
         onClick={() => editComment()}
       >
@@ -46,5 +48,3 @@ function EditComment(props) {
     </div>
   );
 }
-
-export default EditComment;

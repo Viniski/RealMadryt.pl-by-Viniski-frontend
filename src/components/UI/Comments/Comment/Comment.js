@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
-import AuthContext from "../../../../context/authContext";
-import ReplyComment from "../ReplyComment/ReplyComment";
-import EditComment from "../EditComment/EditComment";
+import { AuthContext } from "../../../../context/authContext";
+import { ReplyComment } from "../ReplyComment/ReplyComment";
+import { EditComment } from "../EditComment/EditComment";
 import styles from "./Comment.module.css";
 
-function Comment(props) {
+export function Comment({ onDelete, onReply, onEdit, replies, data }) {
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
   const authContext = useContext(AuthContext);
@@ -14,64 +14,56 @@ function Comment(props) {
     userName = authContext.user.userName;
   }
   return (
-    <div className={styles[props.data.className]}>
+    <div className={styles[data.className]}>
       <div className={styles.commentInfo}>
-        <span className={styles.commentAuthor}>{`${props.data.user} `}</span>
+        <span className={styles.commentAuthor}>{`${data.user} `}</span>
         <span className={styles.commentTime}>
-          {props.data.time}
-          {props.data.isEdited ? " (edytowany)" : ""}
+          {data.time}
+          {data.isEdited ? " (edytowany)" : ""}
         </span>
       </div>
       <div className={styles.commentText}>
-        <p className={styles.commentTextParagraph}>{props.data.text}</p>
+        <p className={styles.commentTextParagraph}>{data.text}</p>
         {auth ? (
           <>
             <button onClick={() => setShowReplyForm(!showReplyForm)}>
               Odpowiedz
             </button>
-            {userName === props.data.user ? (
+            {userName === data.user ? (
               <>
                 <button onClick={() => setShowEditForm(!showEditForm)}>
                   Edytuj
                 </button>
-                <button
-                  onClick={() =>
-                    props.onDelete(props.data._id, props.data.articleId)
-                  }
-                >
+                <button onClick={() => onDelete(data._id, data.articleId)}>
                   Usuń
                 </button>
               </>
             ) : null}
           </>
         ) : null}
-        {showEditForm && (
-          <EditComment onEdit={props.onEdit} data={props.data} />
-        )}
+        {showEditForm && <EditComment onEdit={onEdit} data={data} />}
         {showReplyForm && (
           <ReplyComment
-            onReply={props.onReply}
-            articleId={props.data.articleId}
-            commentId={props.data._id}
-            parentId={props.data.parentId}
-            userName={props.data.user}
+            onReply={onReply}
+            articleId={data.articleId}
+            commentId={data._id}
+            parentId={data.parentId}
+            userName={data.user}
           />
         )}
       </div>
-      {props.replies.map((comment) => (
+      {replies.map((comment) => (
         <Comment
           key={comment._id}
           data={comment}
           replies={[]}
           _id={comment._id}
           articleId={comment.articleId}
-          onDelete={props.onDelete}
-          onReply={props.onReply}
-          onEdit={props.onEdit}
+          onDelete={onDelete}
+          onReply={onReply}
+          onEdit={onEdit}
         />
       ))}
     </div>
   );
 }
-
-export default Comment;

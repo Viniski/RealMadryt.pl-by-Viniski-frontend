@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "./../../../hooks/useAuth";
-import useWebsiteTitle from "./../../../hooks/useWebsiteTitle";
+import { useAuth } from "./../../../hooks/useAuth";
+import { useWebsiteTitle } from "./../../../hooks/useWebsiteTitle";
 import { axiosInstance } from "./../../../axios";
 import google from "../../../assets/icons/google.webp";
 import github from "../../../assets/icons/github.webp";
-import FormInput from "../../../components/Input/FormInput";
-import FormPasswordInput from "../../../components/Input/FormPasswordInput";
+import { FormInput } from "../../../components/Input/FormInput";
+import { FormPasswordInput } from "../../../components/Input/FormPasswordInput";
 import styles from "./Login.module.css";
 
-export default function Login() {
+export function Login() {
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");

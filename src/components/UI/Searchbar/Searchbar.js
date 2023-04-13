@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import FormInput from "../../Input/FormInput";
+import { FormInput } from "../../Input/FormInput";
 import styles from "./Searchbar.module.css";
 
-function Searchbar(props) {
+export function Searchbar({ targetDevice }) {
   const navigate = useNavigate();
   const [term, setTerm] = useState("");
   const inputRef = useRef();
@@ -31,7 +31,7 @@ function Searchbar(props) {
   return (
     <div
       className={
-        props.targetDevice === "mobile"
+        targetDevice === "mobile"
           ? styles.searchBarMobile
           : styles.searchBarDeskop
       }
@@ -50,5 +50,3 @@ function Searchbar(props) {
     </div>
   );
 }
-
-export default Searchbar;

@@ -1,32 +1,32 @@
 import { useEffect, useReducer, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import AuthContext from "./context/authContext";
-import ReducerContext from "./context/reducerContext";
+import { AuthContext } from "./context/authContext";
+import { ReducerContext } from "./context/reducerContext";
 import axios from "axios";
 import { axiosInstance } from "./axios";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import LoadingIcon from "./components/UI/LoadingIcon/BouncingBalls";
-import Searchbar from "./components/UI/Searchbar/Searchbar";
-import ScrollToTop from "./components/UI/ScrollToTop/ScrollToTop";
-import Layout from "./components/Layout/Layout";
-import Nav from "./components/Header/Nav/Nav";
-import Champions from "./components/Header/Champions/Champions";
-import Home from "./pages/Home/Home";
-import Article from "./pages/Article/Article";
-import Search from "./pages/Search/Search";
-import WelcomeUser from "./pages/Auth/WelcomeUser/WelcomeUser";
-import NotFound from "./pages/NotFound/NotFound";
-import Login from "./pages/Auth/Login/Login";
-import Registration from "./pages/Auth/Registration/Registration";
+import { Header } from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
+import { LoadingIcon } from "./components/UI/LoadingIcon/BouncingBalls";
+import { Searchbar } from "./components/UI/Searchbar/Searchbar";
+import { ScrollToTop } from "./components/UI/ScrollToTop/ScrollToTop";
+import { Layout } from "./components/Layout/Layout";
+import { Nav } from "./components/Header/Nav/Nav";
+import { Champions } from "./components/Header/Champions/Champions";
+import { Home } from "./pages/Home/Home";
+import { Article } from "./pages/Article/Article";
+import { Search } from "./pages/Search/Search";
+import { WelcomeUser } from "./pages/Auth/WelcomeUser/WelcomeUser";
+import { NotFound } from "./pages/NotFound/NotFound";
+import { Login } from "./pages/Auth/Login/Login";
+import { Registration } from "./pages/Auth/Registration/Registration";
 import { reducer } from "./reducer";
-import ErrorBoundary from "./hoc/ErrorBoundary";
+import { ErrorBoundary } from "./hoc/ErrorBoundary";
 import "./App.css";
 
 const AuthenticatedRoute = lazy(() => import("./hoc/AuthenticatedRoute"));
 
-function App() {
+export function App() {
   const initialState = {
     articles: [],
     isAuthenticated: false,
@@ -248,5 +248,3 @@ function App() {
     <LoadingIcon />
   );
 }
-
-export default App;

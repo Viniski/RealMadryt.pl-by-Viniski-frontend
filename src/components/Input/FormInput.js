@@ -1,33 +1,39 @@
-const FormInput = (props) => {
-  if (props.type === "checkbox") {
+export const FormInput = ({
+  label,
+  type,
+  value,
+  className,
+  onKeyDown,
+  onChange,
+  ...props
+}) => {
+  if (type === "checkbox") {
     return (
       <div>
-        <label>{props.label}</label>
+        <label>{label}</label>
         <input
-          type={props.type}
-          checked={props.value}
-          onChange={(e) => props.onChange(e.target.checked)}
-          className={props.className}
+          type={type}
+          checked={value}
+          onChange={(e) => onChange(e.target.checked)}
+          className={className}
         />
       </div>
     );
   }
 
   return (
-      <input
-        ref={props?.innerRef}
-        placeholder={props.label || props?.placeholder}
-        type={props.type}
-        value={props.value}
-        onKeyDown={(e) => props.onKeyDown(e)}
-        onChange={(e) => props.onChange(e.target.value)}
-        className={props.className}
-      />
+    <input
+      ref={props?.innerRef}
+      placeholder={label || props?.placeholder}
+      type={type}
+      value={value}
+      onKeyDown={(e) => onKeyDown(e)}
+      onChange={(e) => onChange(e.target.value)}
+      className={className}
+    />
   );
 };
 
 FormInput.defaultProps = {
   type: "text",
 };
-
-export default FormInput;

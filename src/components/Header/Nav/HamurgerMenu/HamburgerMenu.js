@@ -1,10 +1,10 @@
 import styles from "./HamburgerMenu.module.css";
 
-function HamburgerMenu(props) {
+export function HamburgerMenu({ isClicked }) {
   return (
     <div
       className={
-        props.isClicked
+        isClicked
           ? `${styles.hamburgerMenu} ${styles.clicked}`
           : `${styles.hamburgerMenu} ${styles.unclicked}`
       }
@@ -15,5 +15,3 @@ function HamburgerMenu(props) {
     </div>
   );
 }
-
-export default HamburgerMenu;

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
+import { useWebsiteTitle } from "../../../hooks/useWebsiteTitle";
 import styles from "./WelcomeUser.module.css";
 
-export default function WelcomeUser() {
+export function WelcomeUser() {
   useWebsiteTitle(`Witaj madridisto! | RealMadryt.pl by Viniski`);
-  
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Witaj na RealMadryt.pl by Viniski</h1>
@@ -20,9 +20,7 @@ export default function WelcomeUser() {
       </p>
       <p className={styles.paragraph}>Hala Madrid y nada mas! </p>
       <p className={styles.paragraph}>
-        <Link to={"/"}>
-          Powróć do strony głównej
-        </Link>
+        <Link to={"/"}>Powróć do strony głównej</Link>
       </p>
     </div>
   );

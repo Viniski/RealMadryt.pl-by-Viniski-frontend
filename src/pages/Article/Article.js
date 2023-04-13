@@ -1,17 +1,19 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import useWebsiteTitle from "./../../hooks/useWebsiteTitle";
-import ReducerContext from "./../../context/reducerContext";
-import Comments from "../../components/UI/Comments/Comments";
+import { useWebsiteTitle } from "./../../hooks/useWebsiteTitle";
+import { ReducerContext } from "./../../context/reducerContext";
+import { Comments } from "../../components/UI/Comments/Comments";
 import styles from "./Article.module.css";
 
-function Article() {
+export function Article() {
   const reducer = useContext(ReducerContext);
   const { id } = useParams();
 
   const getArticleData = () => {
-     let article = reducer.state.articles.filter((el) => el.articleId === Number(id));
-     return article[0];
+    let article = reducer.state.articles.filter(
+      (el) => el.articleId === Number(id)
+    );
+    return article[0];
   };
 
   let article = getArticleData();
@@ -42,5 +44,3 @@ function Article() {
     </main>
   );
 }
-
-export default Article;

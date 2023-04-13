@@ -2,24 +2,24 @@ import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
-import useAuth from "../../../hooks/useAuth";
-import AuthContext from "../../../context/authContext";
-import Searchbar from "../../UI/Searchbar/Searchbar";
-import HamburgerMenu from "./HamurgerMenu/HamburgerMenu";
+import { useAuth } from "../../../hooks/useAuth";
+import { AuthContext } from "../../../context/authContext";
+import { Searchbar } from "../../UI/Searchbar/Searchbar";
+import { HamburgerMenu } from "./HamurgerMenu/HamburgerMenu";
 import styles from "./Nav.module.css";
 
-function Nav() {
+export function Nav() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [auth, setAuth] = useAuth();
   const [cookies] = useCookies();
   const authContext = useContext(AuthContext);
   const navigate = useNavigate();
   let userName;
-  
+
   if (auth) {
     userName = authContext.user.userName;
   }
-  
+
   let loguotAuthAxios = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
     headers: {
@@ -28,7 +28,7 @@ function Nav() {
     },
     withCredentials: true,
   });
-  
+
   const logout = async (e) => {
     e.preventDefault();
     if (authContext.user.authenticationMethod === "social") {
@@ -88,5 +88,3 @@ function Nav() {
     </>
   );
 }
-
-export default Nav;

@@ -1,7 +1,7 @@
-import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import { useWebsiteTitle } from "../../hooks/useWebsiteTitle";
 import styles from "./NotFound.module.css";
 
-export default function NotFound() {
+export function NotFound() {
   useWebsiteTitle(`Błąd | RealMadryt.pl by Viniski`);
 
   return (

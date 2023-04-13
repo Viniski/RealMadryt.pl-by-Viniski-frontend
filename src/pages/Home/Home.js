@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import useWebsiteTitle from "./../../hooks/useWebsiteTitle";
-import ReducerContext from "../../context/reducerContext";
-import Main from "../../components/Main/Main";
-import MostComment from "../../components/Main/MostComment/MostComment";
+import { useWebsiteTitle } from "./../../hooks/useWebsiteTitle";
+import { ReducerContext } from "../../context/reducerContext";
+import { Main } from "../../components/Main/Main";
+import { MostComment } from "../../components/Main/MostComment/MostComment";
 
-export default function Home() {
+export function Home() {
   useWebsiteTitle("RealMadryt.pl by Viniski");
   const reducer = useContext(ReducerContext);
 

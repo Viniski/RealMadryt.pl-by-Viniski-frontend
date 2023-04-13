@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import useWebsiteTitle from "./../../hooks/useWebsiteTitle";
-import ReducerContext from "../../context/reducerContext";
-import Main from "./../../components/Main/Main";
+import { useWebsiteTitle } from "./../../hooks/useWebsiteTitle";
+import { ReducerContext } from "../../context/reducerContext";
+import { Main } from "./../../components/Main/Main";
 import styles from "./Search.module.css";
 
-export default function Search() {
+export function Search() {
   const reducer = useContext(ReducerContext);
   const { term } = useParams();
 
@@ -21,7 +21,9 @@ export default function Search() {
 
   return (
     <div className={styles.searchPage}>
-      <h2 className={styles.searchPageHeader}>Wyniki wyszukiwania dla frazy"{term}":</h2>
+      <h2 className={styles.searchPageHeader}>
+        Wyniki wyszukiwania dla frazy"{term}":
+      </h2>
       <>
         {getSearchArticles().length === 0 ? (
           <div className={styles.searchPageDiv}>
