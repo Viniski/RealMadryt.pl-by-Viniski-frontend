@@ -22,12 +22,14 @@ export function Comment({ onDelete, onReply, onEdit, replies, data }) {
         <p className={styles.commentTextParagraph}>{data.text}</p>
         {isAuthenticated ? (
           <>
-            <button onClick={() => setShowReplyForm(!showReplyForm)}>
+            <button onClick={() => setShowReplyForm((prevState) => !prevState)}>
               Odpowiedz
             </button>
             {user === data.user ? (
               <>
-                <button onClick={() => setShowEditForm(!showEditForm)}>
+                <button
+                  onClick={() => setShowEditForm((prevState) => !prevState)}
+                >
                   Edytuj
                 </button>
                 <button onClick={() => onDelete(data._id, data.articleId)}>
