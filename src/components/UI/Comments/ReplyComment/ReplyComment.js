@@ -18,7 +18,8 @@ export function ReplyComment({
     user = authContext.user.userName;
   }
 
-  const addReplyComment = () => {
+  const handleReplyComment = (e) => {
+    e.preventDefault();
     const time = new Date();
     const newComment = {
       articleId: articleId,
@@ -36,19 +37,12 @@ export function ReplyComment({
     setNewTextComment("");
   };
 
-  const onKeyDownHandler = (e) => {
-    if (e.key === "Enter") {
-      addReplyComment();
-    }
-  };
-
   return (
-    <div className={styles.replyDiv}>
+    <form onSubmit={handleReplyComment} className={styles.replyDiv}>
       <FormInput
         placeholder={`Dodaj komentarz`}
         value={newTextComment}
         onChange={setNewTextComment}
-        onKeyDown={onKeyDownHandler}
         className={styles.replyForm}
       />
       <button
@@ -57,10 +51,9 @@ export function ReplyComment({
             ? styles.activeButton
             : styles.inactiveButton
         }
-        onClick={() => addReplyComment()}
       >
         Odpowiedz
       </button>
-    </div>
+    </form>
   );
 }

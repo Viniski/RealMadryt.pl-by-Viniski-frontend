@@ -12,7 +12,8 @@ export function AddComment({ articleId, onAdd }) {
     userName = authContext.user.userName;
   }
 
-  const addNewComment = () => {
+  const handleNewComment = (e) => {
+    e.preventDefault();
     const time = new Date();
     const newComment = {
       articleId: articleId,
@@ -30,21 +31,14 @@ export function AddComment({ articleId, onAdd }) {
     setNewTextComment("");
   };
 
-  const onKeyDownHandler = (e) => {
-    if (e.key === "Enter") {
-      addNewComment();
-    }
-  };
-
   return (
-    <div className={styles.form}>
+    <form onSubmit={handleNewComment} className={styles.form}>
       {auth ? (
         <>
           <FormInput
             placeholder={`Dodaj komentarz`}
             value={newTextComment}
             onChange={setNewTextComment}
-            onKeyDown={onKeyDownHandler}
             className={styles.commentForm}
           />
           <button
@@ -53,7 +47,6 @@ export function AddComment({ articleId, onAdd }) {
                 ? styles.activeButton
                 : styles.inactiveButton
             }
-            onClick={() => addNewComment()}
           >
             Dodaj
           </button>
@@ -62,7 +55,7 @@ export function AddComment({ articleId, onAdd }) {
         <div className={styles.form}>
           <h3>Zaloguj się, aby dodawać komentarze.</h3>
         </div>
-      )}{" "}
-    </div>
+      )}
+    </form>
   );
 }

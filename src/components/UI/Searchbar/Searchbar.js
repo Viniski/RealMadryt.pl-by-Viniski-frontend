@@ -8,16 +8,11 @@ export function Searchbar({ targetDevice }) {
   const [term, setTerm] = useState("");
   const inputRef = useRef();
 
-  const search = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     if (term === "") return;
     navigate(`/wyszukaj/${term}`);
     setTerm("");
-  };
-
-  const onKeyDownHandler = (e) => {
-    if (e.key === "Enter") {
-      search();
-    }
   };
 
   const focusInput = () => {
@@ -29,7 +24,8 @@ export function Searchbar({ targetDevice }) {
   }, [term]);
 
   return (
-    <div
+    <form
+      onSubmit={handleSearch}
       className={
         targetDevice === "mobile"
           ? styles.searchBarMobile
@@ -41,12 +37,9 @@ export function Searchbar({ targetDevice }) {
         placeholder={"Wyszukaj artykuł"}
         value={term}
         onChange={setTerm}
-        onKeyDown={onKeyDownHandler}
         className={styles.input}
       />
-      <button onClick={search} className={styles.button}>
-        Szukaj
-      </button>
-    </div>
+      <button className={styles.button}>Szukaj</button>
+    </form>
   );
 }

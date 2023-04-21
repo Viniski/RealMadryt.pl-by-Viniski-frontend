@@ -102,3 +102,13 @@
     font-size: 10px;
   }
 }
+
+@media (max-width: 350px) {
+  .main_title {
+    font-size: 16px;
+  }
+
+  .main_p {
+    display: none;
+  }
+}

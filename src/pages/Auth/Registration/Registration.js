@@ -53,7 +53,7 @@ export function Registration() {
       .map((input) => input.value)
       .filter((value) => !value).length;
 
-  const submit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = {
       user: form.user.value,
@@ -162,7 +162,7 @@ export function Registration() {
           społeczności kibiców najlepszego klubu na świecie!
         </p>
       </div>
-      <form onSubmit={submit} className={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <FormInput
           label="Twój adres email"
           type="email"

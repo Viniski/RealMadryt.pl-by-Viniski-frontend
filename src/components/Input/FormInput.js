@@ -3,13 +3,12 @@ export const FormInput = ({
   type,
   value,
   className,
-  onKeyDown,
   onChange,
   ...props
 }) => {
   if (type === "checkbox") {
     return (
-      <form>
+      <div>
         <label>{label}</label>
         <input
           type={type}
@@ -17,22 +16,21 @@ export const FormInput = ({
           onChange={(e) => onChange(e.target.checked)}
           className={className}
         />
-      </form>
+      </div>
     );
   }
 
   return (
-    <form>
+    <div>
       <input
         ref={props?.innerRef}
         placeholder={label || props?.placeholder}
         type={type}
         value={value}
-        onKeyDown={(e) => onKeyDown(e)}
         onChange={(e) => onChange(e.target.value)}
         className={className}
       />
-    </form>
+    </div>
   );
 };
 

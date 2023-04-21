@@ -5,7 +5,8 @@ import styles from "./EditComment.module.css";
 export function EditComment({ onEdit, data }) {
   const [newTextComment, setNewTextComment] = useState(data.text);
 
-  const editComment = () => {
+  const handleEditComment = (e) => {
+    e.preventDefault();
     const newComment = {
       articleId: data.articleId,
       _id: data._id,
@@ -20,19 +21,12 @@ export function EditComment({ onEdit, data }) {
     setNewTextComment("");
   };
 
-  const onKeyDownHandler = (e) => {
-    if (e.key === "Enter") {
-      editComment();
-    }
-  };
-
   return (
-    <div className={styles.editDiv}>
+    <form onSubmit={handleEditComment} className={styles.editDiv}>
       <FormInput
         placeholder={`Dodaj komentarz`}
         value={newTextComment}
         onChange={setNewTextComment}
-        onKeyDown={onKeyDownHandler}
         className={styles.editForm}
       />
       <button
@@ -41,10 +35,9 @@ export function EditComment({ onEdit, data }) {
             ? styles.activeButton
             : styles.inactiveButton
         }
-        onClick={() => editComment()}
       >
         Edytuj
       </button>
-    </div>
+    </form>
   );
 }

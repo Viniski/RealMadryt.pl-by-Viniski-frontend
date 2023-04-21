@@ -1,3 +1,7 @@
+.searchBarDeskop {
+  display: flex;
+}
+
 .searchBarMobile {
   display: none;
 }
