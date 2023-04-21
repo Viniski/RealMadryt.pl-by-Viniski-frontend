@@ -5,7 +5,7 @@ import { MyComment } from "./MyComment/MyComment";
 import { LoadingIcon } from "../../../../components/UI/LoadingIcon/LoadingIcon";
 import styles from "./MyComments.module.css";
 
-function MyComments() {
+export function MyComments() {
   const [myComments, setMyComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const auth = useContext(AuthContext);
@@ -49,5 +49,3 @@ function MyComments() {
     </>
   );
 }
-
-export default MyComments;

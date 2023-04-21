@@ -13,9 +13,9 @@ export function ReplyComment({
   const [newTextComment, setNewTextComment] = useState(`@${userName} `);
   const authContext = useContext(AuthContext);
   const auth = authContext.isAuthenticated;
-  let userName;
+  let user;
   if (auth) {
-    userName = authContext.user.userName;
+    user = authContext.user.userName;
   }
 
   const addReplyComment = () => {
@@ -28,7 +28,7 @@ export function ReplyComment({
         timeStyle: "medium",
       }),
       isEdited: false,
-      user: userName,
+      user: user,
       text: newTextComment,
       className: "reply",
     };

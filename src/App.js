@@ -7,7 +7,7 @@ import axios from "axios";
 import { axiosInstance } from "./axios";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
-import { LoadingIcon } from "./components/UI/LoadingIcon/BouncingBalls";
+import { BouncingBalls } from "./components/UI/LoadingIcon/BouncingBalls";
 import { Searchbar } from "./components/UI/Searchbar/Searchbar";
 import { ScrollToTop } from "./components/UI/ScrollToTop/ScrollToTop";
 import { Layout } from "./components/Layout/Layout";
@@ -245,6 +245,6 @@ export function App() {
       </AuthContext.Provider>
     </Router>
   ) : (
-    <LoadingIcon />
+    <BouncingBalls />
   );
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ReducerContext } from "../../../../../context/reducerContext";
 import styles from "./MyComment.module.css";
 
-function MyComment({ data }) {
+export function MyComment({ data }) {
   const reducer = useContext(ReducerContext);
 
   const getArticleTitle = (atricleId) => {
@@ -26,5 +26,3 @@ function MyComment({ data }) {
     </div>
   );
 }
-
-export default MyComment;
