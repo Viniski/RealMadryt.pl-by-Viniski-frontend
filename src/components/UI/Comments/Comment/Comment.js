@@ -8,7 +8,6 @@ export function Comment({ onDelete, onReply, onEdit, replies, data }) {
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
   const { isAuthenticated, user } = useContext(AuthContext);
-
   return (
     <div className={styles[data.className]}>
       <div className={styles.commentInfo}>
@@ -25,7 +24,7 @@ export function Comment({ onDelete, onReply, onEdit, replies, data }) {
             <button onClick={() => setShowReplyForm((prevState) => !prevState)}>
               Odpowiedz
             </button>
-            {user === data.user ? (
+            {user.userName === data.user ? (
               <>
                 <button
                   onClick={() => setShowEditForm((prevState) => !prevState)}

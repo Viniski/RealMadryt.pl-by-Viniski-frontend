@@ -40,6 +40,10 @@ This repository contains the frontend part of the my application. You can find t
 
 ## :rocket: Demo
 
+Tetsing account:
+Email: test@gmail.com
+Password: 123456789
+
 https://realmadrytplbyviniski.vercel.app/
 
 #### If you want running on your computer:
