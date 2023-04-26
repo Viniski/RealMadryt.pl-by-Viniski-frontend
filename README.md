@@ -40,11 +40,7 @@ This repository contains the frontend part of the my application. You can find t
 
 ## :rocket: Demo
 
-https://realmadrytbyviniski.onrender.com
-
-Render.com cloud application hosting for developers was used. Please be patient while loading due to the free package I'm using.
-
-Unfortunately, after logging in and refreshing the page, you will not be logged in, because the free site I use for deployment is on the public suffix list, which prevents cookies from working properly. Also login via social media does not work for this reason. I encourage you to run the project on your computer, to take advantage of this facility :)
+https://realmadrytplbyviniski.vercel.app/
 
 #### If you want running on your computer:
 
