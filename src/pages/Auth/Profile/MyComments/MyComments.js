@@ -1,34 +1,26 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../../context/authContext";
-import { axiosInstance } from "../../../../axios";
 import { MyComment } from "./MyComment/MyComment";
 import { LoadingIcon } from "../../../../components/UI/LoadingIcon/LoadingIcon";
 import styles from "./MyComments.module.css";
 
 export function MyComments() {
-  const [myComments, setMyComments] = useState([]);
-  const [loading, setLoading] = useState(true);
   const auth = useContext(AuthContext);
   const authUser = auth.user.userName;
+  const { data: myArrayOfComments, isLoading } = useQuery(
+    ["comments"],
+    fetchComments
+  );
 
-  const getMyComments = async () => {
-    const res = await axiosInstance.get("/comments");
-    let myComments = res.data;
-    myComments = myComments.filter((el) => el.user == authUser);
-    setMyComments(myComments);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    getMyComments();
-  }, []);
+  let myComments = myComments.filter((el) => el.user == authUser);
 
   return (
     <>
       <div className={styles.loginTitle}>
         <h1>Moje komentarze</h1>
       </div>
-      {loading ? (
+      {isLoading ? (
         <LoadingIcon />
       ) : (
         <div className={styles.commentsPanel}>

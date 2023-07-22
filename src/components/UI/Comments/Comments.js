@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import {
   NotificationContainer,
   NotificationManager,
@@ -10,26 +10,18 @@ import { AddComment } from "./AddComment/AddComment";
 import { Comment } from "./Comment/Comment";
 import { DeletedRootComment } from "./DeletedRootComment/DeletedRootComment";
 import { LoadingIcon } from "../LoadingIcon/LoadingIcon";
+import { fetchComments } from "../../../api/helpers";
 import styles from "./Comments.module.css";
 
 export function Comments() {
-  const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const { data: myArrayOfComments, isLoading } = useQuery(
+    ["comments"],
+    fetchComments
+  );
+
+  let comments = myArrayOfComments.filter((el) => el.articleId === Number(id));
   const rootComments = comments.filter((comment) => comment.parentId === null);
-
-  useEffect(() => {
-    fetchComments();
-  }, []);
-
-  async function fetchComments() {
-    const res = await axiosInstance.get("/comments");
-    let myArrayOfComments = res.data.filter(
-      (el) => el.articleId === Number(id)
-    );
-    setComments(myArrayOfComments);
-    setLoading(false);
-  }
 
   function handleDeleteComment(commentId, articleId) {
     let _id = commentId;
@@ -128,7 +120,7 @@ export function Comments() {
   return (
     <section className={styles.comments}>
       <NotificationContainer />
-      {loading ? (
+      {isLoading ? (
         <LoadingIcon />
       ) : (
         <>

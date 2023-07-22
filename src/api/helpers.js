@@ -8,3 +8,12 @@ export async function fetchArticles() {
     console.error(err);
   }
 }
+
+export async function fetchComments() {
+  try {
+    const { data } = await axiosInstance.get("/comments");
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+}
