@@ -1,11 +1,9 @@
-// WERSJA Z CV!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 import { useEffect, useReducer, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { AuthContext } from "./context/authContext";
 import { ReducerContext } from "./context/reducerContext";
 import axios from "axios";
-import { axiosInstance } from "./axios";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import { BouncingBalls } from "./components/UI/LoadingIcon/BouncingBalls";
@@ -37,11 +35,6 @@ export function App() {
   const [cookies] = useCookies();
 
   useEffect(() => {
-    async function getData() {
-      const res = await axiosInstance.get("/articles");
-      dispatch({ type: "set-articles", articles: res.data });
-    }
-
     async function getUserSocialAuth() {
       fetch(`${process.env.REACT_APP_API_URL}/auth/login/success`, {
         method: "GET",
@@ -182,7 +175,6 @@ export function App() {
 
     getUserDefaultAuth();
     getUserSocialAuth();
-    getData();
   }, []);
 
   return state.articles.length ? (

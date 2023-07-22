@@ -1,16 +1,17 @@
-import { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { useWebsiteTitle } from "./../../hooks/useWebsiteTitle";
-import { ReducerContext } from "../../context/reducerContext";
 import { Main } from "./../../components/Main/Main";
+import { fetchArticles } from "../../api/helpers";
 import styles from "./Search.module.css";
 
 export function Search() {
-  const reducer = useContext(ReducerContext);
+  const { data: articles } = useQuery(["articles"], fetchArticles);
+
   const { term } = useParams();
 
   const getSearchArticles = () => {
-    return reducer.state.articles.filter((article) =>
+    return articles.filter((article) =>
       article.title.toLowerCase().includes(term.toLowerCase())
     );
   };

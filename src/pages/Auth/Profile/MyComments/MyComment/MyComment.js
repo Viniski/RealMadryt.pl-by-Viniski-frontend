@@ -1,13 +1,13 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ReducerContext } from "../../../../../context/reducerContext";
+import { useQuery } from "@tanstack/react-query";
+import { fetchArticles } from "../../../../../api/helpers";
 import styles from "./MyComment.module.css";
 
 export function MyComment({ data }) {
-  const reducer = useContext(ReducerContext);
+  const { data: articles } = useQuery(["articles"], fetchArticles);
 
   const getArticleTitle = (atricleId) => {
-    const allArticle = [...reducer.state.articles];
+    const allArticle = [...articles];
     const article = allArticle.filter(
       (article) => article.articleId === Number(atricleId)
     );

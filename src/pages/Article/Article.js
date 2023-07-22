@@ -1,18 +1,16 @@
-import { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { useWebsiteTitle } from "./../../hooks/useWebsiteTitle";
-import { ReducerContext } from "./../../context/reducerContext";
 import { Comments } from "../../components/UI/Comments/Comments";
+import { fetchArticles } from "../../api/helpers";
 import styles from "./Article.module.css";
 
 export function Article() {
-  const reducer = useContext(ReducerContext);
+  const { data: articles } = useQuery(["articles"], fetchArticles);
   const { id } = useParams();
 
   const getArticleData = () => {
-    let article = reducer.state.articles.filter(
-      (el) => el.articleId === Number(id)
-    );
+    let article = articles.filter((el) => el.articleId === Number(id));
     return article[0];
   };
 
