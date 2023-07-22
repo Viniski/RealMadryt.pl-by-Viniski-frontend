@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   NotificationContainer,
   NotificationManager,
@@ -10,10 +11,19 @@ import { AddComment } from "./AddComment/AddComment";
 import { Comment } from "./Comment/Comment";
 import { DeletedRootComment } from "./DeletedRootComment/DeletedRootComment";
 import { LoadingIcon } from "../LoadingIcon/LoadingIcon";
-import { fetchComments } from "../../../api/helpers";
+import {
+  fetchComments,
+  deleteAPIComment,
+  decrementAPIComment,
+  incrementAPIComment,
+  editAPIComment,
+  addAPIComment,
+} from "../../../api/helpers";
 import styles from "./Comments.module.css";
 
 export function Comments() {
+  const queryClient = useQueryClient();
+
   const { id } = useParams();
   const { data: myArrayOfComments, isLoading } = useQuery(
     ["comments"],
@@ -22,6 +32,41 @@ export function Comments() {
 
   let comments = myArrayOfComments.filter((el) => el.articleId === Number(id));
   const rootComments = comments.filter((comment) => comment.parentId === null);
+
+  const { mutate: deleteMutate } = useMutation({
+    mutationFn: deleteAPIComment,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["comments"] });
+    },
+  });
+
+  const { mutate: decrementMutate } = useMutation({
+    mutationFn: decrementAPIComment,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["articles"] });
+    },
+  });
+
+  const { mutate: incrementMutate } = useMutation({
+    mutationFn: incrementAPIComment,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["articles"] });
+    },
+  });
+
+  const { mutate: editMutate } = useMutation({
+    mutationFn: editAPIComment,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["comments"] });
+    },
+  });
+
+  const { mutate: addMutate } = useMutation({
+    mutationFn: addAPIComment,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["comments"] });
+    },
+  });
 
   function handleDeleteComment(commentId, articleId) {
     let _id = commentId;
@@ -53,9 +98,8 @@ export function Comments() {
 
   async function deleteComment(commentId, articleId) {
     let data = comments.filter((comment) => comment._id !== commentId);
-    await axiosInstance.delete(`/comments/${commentId}`);
-    await axiosInstance.put(`/articles-comments-decrement/${articleId}`);
-    setComments(data);
+    deleteMutate(commentId);
+    decrementMutate(articleId);
   }
 
   async function deleteDeletedRootCommentAndLastReplyComment(
@@ -66,11 +110,10 @@ export function Comments() {
     let data = comments.filter(
       (comment) => comment._id !== deletedRootCommentId
     );
-    await axiosInstance.delete(`/comments/${deletedRootCommentId}`);
+    deleteMutate(deletedRootCommentId);
     data = data.filter((comment) => comment._id !== lastReplyCommentId);
-    await axiosInstance.delete(`/comments/${lastReplyCommentId}`);
-    await axiosInstance.put(`/articles-comments-decrement/${articleId}`);
-    setComments(data);
+    deleteMutate(lastReplyCommentId);
+    decrementMutate(articleId);
   }
 
   async function deleteRootComments(commentId, articleId) {
@@ -87,31 +130,22 @@ export function Comments() {
       text: "Użytkownik usunął treść komentarza",
       className: data.className,
     };
-    await axiosInstance.put(`/articles-comments-decrement/${articleId}`);
+    decrementMutate(articleId);
     handleEditComment(deletedRootComment);
   }
 
   async function handleAddComment(newComment) {
     const data = [...comments];
     try {
-      const res = await axiosInstance.post("/comments", newComment);
-      const addedComment = res.data;
-      await axiosInstance.put(
-        `/articles-comments-increment/${newComment.articleId}`
-      );
-      data.push(addedComment);
-      setComments(data);
+      addMutate(newComment);
+      incrementMutate(newComment.articleId);
     } catch (err) {
       NotificationManager.error(err.response.data.message);
     }
   }
 
   async function handleEditComment(newComment) {
-    await axiosInstance.put(`/comments/${newComment._id}`, newComment);
-    const data = [...comments];
-    const index = data.findIndex((el) => el._id === newComment._id);
-    data[index] = newComment;
-    setComments(data);
+    editMutate(newComment._id, newComment);
   }
 
   const getReplyComments = (commentId) =>

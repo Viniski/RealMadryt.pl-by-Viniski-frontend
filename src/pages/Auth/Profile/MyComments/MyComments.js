@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../../context/authContext";
 import { MyComment } from "./MyComment/MyComment";
 import { LoadingIcon } from "../../../../components/UI/LoadingIcon/LoadingIcon";
+import { fetchComments } from "../../../../api/helpers";
 import styles from "./MyComments.module.css";
 
 export function MyComments() {
