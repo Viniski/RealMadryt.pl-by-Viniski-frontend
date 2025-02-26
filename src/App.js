@@ -34,33 +34,35 @@ export function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [cookies] = useCookies();
 
+  console.log("hej");
+
   useEffect(() => {
-    // async function getUserSocialAuth() {
-    //   fetch(`${process.env.REACT_APP_API_URL}/auth/login/success`, {
-    //     method: "GET",
-    //     credentials: "include",
-    //     headers: {
-    //       Accept: "application/json",
-    //       "Content-Type": "application/json",
-    //       "Access-Control-Allow-Credentials": true,
-    //     },
-    //   })
-    //     .then((response) => {
-    //       if (response.status === 200) return response.json();
-    //       throw new Error("Social authentication has been failed!");
-    //     })
-    //     .then((data) => {
-    //       const user = {
-    //         userName: data.user.displayName || `github${data.user.id}`,
-    //         id: data.user.id,
-    //         authenticationMethod: "social",
-    //       };
-    //       dispatch({ type: "login", user });
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //     });
-    // }
+    async function getUserSocialAuth() {
+      fetch(`${process.env.REACT_APP_API_URL}/auth/login/success`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("Social authentication has been failed!");
+        })
+        .then((data) => {
+          const user = {
+            userName: data.user.displayName || `github${data.user.id}`,
+            id: data.user.id,
+            authenticationMethod: "social",
+          };
+          dispatch({ type: "login", user });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
 
     let authAxios = axios.create({
       baseURL: process.env.REACT_APP_API_URL,
@@ -174,7 +176,7 @@ export function App() {
     };
 
     getUserDefaultAuth();
-    // getUserSocialAuth();
+    getUserSocialAuth();
   }, []);
 
   return state.articles.length ? (
